@@ -1,0 +1,16 @@
+@import "../../../styles/variables";
+
+.button__component {
+  padding: 15px;
+  margin: 30px;
+  text-decoration: none;
+  color: $text--color;
+  font-family: $text-font;
+  background-color: $component--color;
+  border-radius: 15px;
+}
+
+.button__component:hover {
+    opacity: 0.9;
+    box-shadow: 0.1px 0.1px 10px 0.1px #dddddd;
+}
