@@ -1,0 +1,20 @@
+@import "../../../styles/variables";
+.nav__button {
+  background: none;
+  border: none;
+  color: $text--color;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.nav__menu {
+  background-color: #060b26;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+}

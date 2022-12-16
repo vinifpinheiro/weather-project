@@ -1,11 +1,7 @@
-import { useParams } from "react-router";
 import { MainComponent } from "../../components/MainComponent";
 import styles from "./MainPage.module.scss";
 
 export const MainPage = () => {
-
-  let {pageSelection} =useParams()
-
   return (
     <div className={styles.main__div}>
       <div className={styles.texts}>

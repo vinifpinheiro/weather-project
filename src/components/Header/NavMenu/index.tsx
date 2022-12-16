@@ -5,24 +5,21 @@ import {
   MdOutlineFlag as IconFlag,
   MdPersonOutline as IconPerson,
   MdMenu as IconMenu,
-  MdOutlineClose as IconClose
+  MdOutlineClose as IconClose,
 } from "react-icons/md";
-import { useRef } from "react";
-import styles from "./NavMenu.module.scss"
+import { useRef, useState } from "react";
+import styles from "./NavMenu.module.scss";
 import classNames from "classnames";
 
 export const NavMenu = () => {
-  const navRef = useRef<HTMLInputElement>(null)
-
-  const ShowMenu = () => {
-    navRef.current?.classList.toggle("menu__nav")
-  }
-
- 
+  
+  const [sidebar, setSideBar] = useState(false)
+  
+  const showSidebar = () => setSideBar(!sidebar)
 
   return (
-    <div>
-      <nav ref={navRef}>
+    <header>
+      <nav className={classNames(sidebar ? styles.nav__active : styles.nav__menu)} onClick={showSidebar}>
         <Link to={"/"}>
           <IconHome />
           Início
@@ -36,9 +33,13 @@ export const NavMenu = () => {
         <Link to={"/about"}>
           <IconPerson /> Sobre
         </Link>
-        <button className={classNames("nav__button", "nav__close")}><IconClose/></button>
+        <button className={classNames(styles.nav__button , styles.nav__close)} onClick={showSidebar}>
+          <IconClose />
+        </button>
       </nav>
-      <button className={styles.nav__button}><IconMenu/></button>
-    </div>
+      <button className={styles.nav__button} onClick={showSidebar}>
+        <IconMenu size={30} />
+      </button>
+    </header>
   );
 };
